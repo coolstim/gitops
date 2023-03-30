@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: solr-write-1
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: solrcloud-charts/write
+    repoURL: https://github.com/coolstim/infra-charts
+    targetRevision: HEAD
+    helm:
+      values: |
+        name: my-write-solr-cluster
+        namespace: write-solr-cluster
+  destination:
+    namespace: write-solr-cluster
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
+    syncOptions:
+    - CreateNamespace=true
+    - PrunePropagationPolicy=background
