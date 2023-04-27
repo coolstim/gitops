@@ -1,0 +1,4 @@
+# apiVersion: v1
+# description: SolrCloud environment
+# name: meh
+# version: "0.1.0"
