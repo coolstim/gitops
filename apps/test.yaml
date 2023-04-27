@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: meh
---
+---
 apiVersion: solr.apache.org/v1beta1
 kind: SolrCloud
 metadata:
