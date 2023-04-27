@@ -7,11 +7,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: meh
+  namespace: testtim
 ---
 apiVersion: solr.apache.org/v1beta1
 kind: SolrCloud
 metadata:
   name: testtim-solr
+  namespace: testtim
 spec:
   busyBoxImage:
     repository: library/busybox
